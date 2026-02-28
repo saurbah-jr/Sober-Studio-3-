@@ -1,0 +1,315 @@
+/* ============================================
+   ABOUT PAGE STYLES
+   ============================================ */
+
+.about-page {
+  background-color: var(--color-black);
+  color: var(--color-yellow);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Hide mobile navbar on desktop */
+.navbar--mobile-only {
+  display: none;
+}
+
+/* --- Main 2-column grid layout --- */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  grid-template-rows: 100vh;
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+}
+
+/* Black content area */
+.about__content {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background-color: var(--color-black);
+  padding: 30px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+/* ========== LEFT COLUMN ========== */
+.about__left {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  /* Fix 5: push content down slightly for better balance */
+  padding-top: 24px;
+}
+
+.about__left::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.about__title {
+  font-family: var(--font-logo);
+  font-size: 120px;
+  font-weight: 400;
+  color: var(--color-yellow);
+  line-height: 0.85;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about__body p {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 155%;
+  color: var(--color-yellow);
+  text-align: left;
+  letter-spacing: 0.02em;
+}
+
+.about__body strong {
+  font-weight: 800;
+}
+
+/* ========== CENTER COLUMN ========== */
+.about__center {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+/* ========== RIGHT SIDEBAR ========== */
+/* Fix 4: Solid yellow — no gradient. Gradient only on active nav link. */
+.about__sidebar {
+  background-color: var(--color-yellow);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px;
+  color: var(--color-black);
+}
+
+/* --- Contact info --- */
+.about__sidebar-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+  text-transform: none;
+}
+
+.about__sidebar-email {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.about__sidebar-copyright {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.about__sidebar-socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.about__sidebar-socials a {
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.about__sidebar-socials a:hover {
+  opacity: 0.6;
+}
+
+/* --- Navigation links --- */
+.about__sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.about__sidebar-link {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-black);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.2s ease;
+  text-transform: none;
+}
+
+.about__sidebar-link:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.about__sidebar-link:hover {
+  opacity: 0.6;
+}
+
+/* Fix 4: gradient only on the active button, not the full sidebar */
+.about__sidebar-link--active {
+  font-weight: 700;
+  background: linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.2) 60%, transparent 100%);
+  padding: 14px 8px;
+  margin: 0 -8px;
+}
+
+.about__sidebar-icon {
+  font-size: 18px;
+}
+
+/* --- Logo (bottom right) --- */
+.about__sidebar-logo {
+  font-family: var(--font-logo);
+  font-size: 80px;
+  font-weight: 400;
+  color: var(--color-black);
+  line-height: 1;
+  margin-top: auto;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.about__sidebar-logo:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+   TABLET (1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .about { grid-template-columns: 1fr 240px; }
+  .about__content { grid-template-columns: 280px 1fr; }
+  .about__title { font-size: 72px; }
+  .about__body p { font-size: 12px; }
+  .about__sidebar-link { font-size: 18px; }
+  .about__sidebar-logo { font-size: 64px; }
+}
+
+/* ============================================
+   MOBILE (768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .about-page {
+    height: auto;
+    overflow: visible;
+  }
+
+  .navbar--mobile-only {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px var(--page-padding) 0;
+    background-color: var(--color-black);
+  }
+
+  .navbar--mobile-only .navbar__mobile-logo {
+    display: block;
+    color: var(--color-white);
+    order: 1;
+    flex: 1;
+  }
+
+  .navbar--mobile-only .navbar__hamburger {
+    display: flex;
+    order: 2;
+  }
+
+  .navbar--mobile-only .navbar__hamburger-line {
+    background-color: var(--color-white);
+  }
+
+  .navbar--mobile-only .navbar__nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    order: 3;
+    padding: 24px;
+    background-color: var(--color-yellow);
+    margin-top: 16px;
+  }
+
+  .navbar--mobile-only .navbar__nav.is-open { display: flex; }
+
+  .navbar--mobile-only .navbar__link {
+    font-size: 28px;
+    font-weight: 600;
+    padding: 8px 0;
+    color: var(--color-black);
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+  }
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px var(--page-padding);
+    gap: 20px;
+  }
+
+  .about__sidebar { display: none; }
+  .about__left { overflow: visible; padding-top: 0; }
+
+  .about__title { font-size: 64px; margin-bottom: 20px; }
+  .about__body p { font-size: 14px; line-height: 155%; }
+  .about__center { width: 100%; height: 300px; }
+
+  .about::after {
+    content: 'BOOK A CALL';
+    display: block;
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: 48px;
+    font-weight: 900;
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE (480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .about__title { font-size: 48px; }
+  .about__body p { font-size: 13px; }
+  .about__center { height: 250px; }
+  .about::after { font-size: 36px; padding: 16px; }
+}
